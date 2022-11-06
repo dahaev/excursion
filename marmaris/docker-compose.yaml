@@ -10,3 +10,26 @@ services:
     image: app:django
     container_name: marmaris_excursion
     command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    container_name: postgres_db
+    environment:
+      - POSTGRES_DB=excursion
+      - POSTGRES_USER=dahaev
+      - POSTGRES_PASSWORD=Cib3jj7yz123
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dahaev@yandex.ru
+      PGADMIN_DEFAULT_PASSWORD: ph4xrln8u
+    ports:
+      - "5050:80"

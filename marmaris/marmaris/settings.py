@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'marmaris.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'excursion',
+        'USER': 'dahaev',
+        'PASSWORD': 'Cib3jj7yz123',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
